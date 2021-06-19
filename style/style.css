@@ -1,5 +1,147 @@
 @import "normalize.css";
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Shrikhand&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Shrikhand&family=Yeseva+One&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300;400;700&family=Shrikhand&family=Yeseva+One&display=swap');
 
-/* p {
-    color: red;
-} */
+html {
+    font-size: 100%;
+    color:#212121;
+}
+
+body {
+    background: rgb(255,255,255);
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 50%, rgba(207,216,220,1) 100%);
+    /* background:linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%); */
+}
+
+#container {
+    display: grid;
+    grid-template-rows: [header-start] 100px [content-start] auto [footer-start] auto;
+    grid-template-columns: [whitespace-left] 20% [main] 60% [whitespace-right] 20%;
+    grid-template-areas: 
+        "header header nav"
+        "whitespace-left main whitespace-right"
+        "footer footer footer"
+}
+
+main {
+    /* width: 80%;
+    margin: 0 auto; */
+    grid-area: main;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* font-family: 'Shrikhand', cursive; */
+    /* font-family: 'Yeseva One', cursive; */
+    font-family: 'Abril Fatface', cursive;
+    color: #1B2631;
+}
+
+h1 {
+    font-size: 2.5rem;;
+    letter-spacing: 0.2rem;
+}
+
+h2 {
+    font-size: 2rem;;
+    letter-spacing: 0.12rem;
+}
+
+p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+
+#story p::first-letter {
+    font-family: 'Abril Fatface', cursive;
+    color: #1B2631;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+header {
+    /* display: inline-block; */
+    /* float: left; */
+    grid-area: header;
+}
+
+nav {
+    /* position: fixed;
+    top: 0px;
+    right: 0px; */
+    /* display: inline; */
+
+    /* width: 50%;
+    height: 100px;
+    float: right; */
+
+    grid-area: nav;
+}
+
+header, nav {
+    /* width: 50%;
+    height: 100px;
+    margin: 0; */
+    background: #1B2631;
+    color: white;
+}
+
+header h1, header p, nav a{
+    color: white;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+nav a:hover {
+    color:#FFB231;
+}
+
+#newsletter {
+    position: fixed;
+    top: 25%;
+    right: 0%;
+    width: 15%;
+    height: 50%;
+    padding: 20px;
+    background: #FFB231;
+    /* border: #1B2631; */
+    border-left: 5px solid #1B2631;
+    border-radius: 30px 0px 0px 30px;
+    box-shadow: 7px 9px 24px -12px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 7px 9px 24px -12px rgba(0, 0, 0, 0.5);
+}
+
+#newsletter h2 {
+    font-size: 1.5em;
+}
+
+#newsletter form {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+    align-items: stretch;
+
+    /* FORTSÄTTTTTTTTT HÄRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
+}
+
+#newsletter label {
+    margin: 5px 10px 5px 0;
+}
+
+footer {
+    grid-area: footer;
+    background: white;
+    text-align: center;
+    padding: 2rem;
+    z-index: 999;
+}
+
+footer p {
+    font-size: 0.9rem;
+    line-height: 0.4rem;
+}
