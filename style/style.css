@@ -1,7 +1,5 @@
 @import "normalize.css";
-/* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Shrikhand&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Shrikhand&family=Yeseva+One&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300;400;700&family=Shrikhand&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300;400;700&display=swap');
 
 html {
     font-size: 100%;
@@ -11,12 +9,11 @@ html {
 body {
     background: rgb(255,255,255);
     background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 50%, rgba(207,216,220,1) 100%);
-    /* background:linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%); */
 }
 
 #container {
     display: grid;
-    grid-template-rows: [header-start] 100px [content-start] auto [newsletter-start] auto [footer-start] auto;
+    grid-template-rows: [header-start] 150px [content-start] auto [newsletter-start] auto [footer-start] auto;
     grid-template-columns: [whitespace-left] 20% [main] 60% [whitespace-right] 20%;
     grid-template-areas: 
         "header header header"
@@ -33,8 +30,8 @@ header {
     grid-area: header;
     position: absolute;
     left: 0px;
-    width: 47%;
-    height: 100px;
+    width: 97%;
+    height: 150px;
     padding-left: 3%;
 }
 
@@ -57,7 +54,7 @@ nav {
     grid-area: header;
     position: absolute;
     width: 50%;
-    height: 100px;
+    height: 150px;
     right: 0px;
     
 }
@@ -65,7 +62,7 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    margin-top: 35px;
+    margin-top: 60px;
     position: absolute;
     right: 0px;
     padding-right: 6%;
@@ -79,9 +76,9 @@ nav a {
 	display: inline-block;
 	cursor: pointer;
 	color: #666666;
-	font-family: Arial;
+	font-family: 'Raleway', sans-serif;
 	font-size: 15px;
-	font-weight: bold;
+	font-weight: 700;
 	padding: 6px 24px;
 	text-decoration: none;
 	text-shadow: 0px 1px 0px #ffffff;
@@ -97,18 +94,23 @@ nav a:active {
 	top:1px;
 }
 
-@media(max-width: 1000px)
+@media(max-width: 480px)
 {
+    #container {
+        grid-template-rows: [header-start] 200px [content-start] auto [newsletter-start] auto [footer-start] auto;
+        grid-template-columns: [whitespace-left] 10% [main] 80% [whitespace-right] 10%;
+    }
+
     header {
         width: 100%;
-        height: auto;
+        height: 200px;
     }
 
     nav {
         height: auto;
         width: 100%;
         right: 50%;
-        top: 100px;
+        top: 200px;
         left: 0px;
         padding-right: 3%;
     }
@@ -134,41 +136,109 @@ nav a:active {
     }
 }
 
+@media(min-width: 481px) and (max-width: 1000px)
+{
+    #container {
+        grid-template-rows: [header-start] 150px [content-start] auto [newsletter-start] auto [footer-start] auto;
+    }
 
-/* Newsletter som sidebar. */
-/* #newsletter {
-    position: fixed;
-    top: 25%;
-    right: 0%;
-    width: 15%;
-    height: 50%;
-    padding: 20px;
-    background: #FFB231;
-    border-left: 5px solid #1B2631;
-    border-radius: 30px 0px 0px 30px;
-    box-shadow: 7px 9px 24px -12px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 7px 9px 24px -12px rgba(0, 0, 0, 0.5);
-} */
+    header {
+        width: 100%;
+        height: 150px;
+    }
+
+    nav {
+        height: auto;
+        width: 100%;
+        right: 50%;
+        top: 150px;
+        left: 0px;
+        padding-right: 3%;
+    }
+
+    nav ul {
+        width: 100%;
+        display: flex;
+        justify-content: stretch;
+        list-style: none;
+        margin-top: 0px;
+        position: absolute;
+        padding-right: 0%;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0px;
+    }
+
+    nav li {
+        width: 25%;
+    }
+}
 
 #newsletter {
+    text-align: center;
+    padding: 4em 0em 4em 0em;
     grid-area: newsletter;
 }
 
-#newsletter h2 {
-    font-size: 1.5em;
-}
-
-#newsletter form {
-    display: flex;
-    flex-flow: row wrap;
-    flex-direction: row;
-    align-items: stretch;
-
-    /* FORTSÄTTTTTTTTT HÄRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
-}
-
 #newsletter label {
-    margin: 5px 10px 5px 0;
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    margin: 30px 0px 5px 0;
+}
+
+#newsletter ul {
+    list-style: none;
+    padding: 0px 0px;
+}
+
+#newsletter input[type=text] {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+}
+
+#newsletter form ul li ul li label {
+    font-weight: 400;
+    margin: 10px 0px 10px 0;
+}
+
+#newsletter input[type=submit] {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	background-color: #f9f9f9;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #666666;
+	font-family: 'Raleway', sans-serif;
+	font-size: 15px;
+    font-weight: 700;
+	padding: 6px 24px;
+    margin-top: 20px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+#newsletter input[type=submit]:hover {
+	background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+	background-color:#e9e9e9;
+}
+
+#newsletter input[type=submit]:active {
+	position: relative;
+	top:1px;
 }
 
 footer {
@@ -176,32 +246,49 @@ footer {
     background: white;
     text-align: center;
     padding: 2rem;
-    z-index: 999;
 }
 
 footer p {
     font-size: 0.9rem;
-    line-height: 0.4rem;
 }
 
 article {
-    padding: 2em 0em 0em 0em;
-}
+    padding: 0em 0em 2em 0em;
+} 
 
 section {
-    /* padding: 5em 0em 0em 0em; */
+    padding: 3em 0em 0em 0em;
 }
 
 img {
     max-width: 100%;
 }
 
+table {
+    width: 100%;
+}
+  
+table td, table th {
+    border-width: 0px;
+    border-color: #7EA8F8;
+    border-style: solid;
+    padding: 5px;
+}
+
+table th {
+    text-align: left;
+    color: white;
+    background: #1B2631;
+}
+
+table tr td:nth-child(2) {
+    font-weight: 700;
+}
+
 
 /* --- Text styling --- */
 
 h1, h2, h3, h4, h5, h6 {
-    /* font-family: 'Shrikhand', cursive; */
-    /* font-family: 'Yeseva One', cursive; */
     font-family: 'Abril Fatface', cursive;
     color: #1B2631;
 }
@@ -216,8 +303,18 @@ h2 {
     letter-spacing: 0.12rem;
 }
 
+h3 {
+    font-size: 1.5rem;;
+    letter-spacing: 0.08rem;
+}
+
 p {
     font-family: 'Raleway', sans-serif;
     font-size: 1.2rem;
-    line-height: 1.5rem;
+    line-height: 1.8rem;
+}
+
+a {
+    color: #1B2631;
+    font-weight: 700;
 }
